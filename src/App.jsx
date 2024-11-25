@@ -34,6 +34,7 @@ export default function App() {
   const [armorRarity, setArmorRarity] = useState("all"); // 防具のレアリティ
   const [armorRank, setArmorRank] = useState("all"); // 防具のランク
   const [searchTerm, setSearchTerm] = useState(""); // 検索語句
+  const [imageVisible, setImageVisible] = useState(null); // 拡大表示する画像のID
 
   useEffect(() => {
     (async () => {
@@ -136,6 +137,11 @@ export default function App() {
     weapons,
     armor,
   ]);
+
+  const handleImageClick = (imageUrl) => {
+    // 画像がクリックされたときの処理
+    setImageVisible(imageVisible === imageUrl ? null : imageUrl); // 同じ画像をクリックしたら非表示にする
+  };
 
   return (
     <>
@@ -259,7 +265,7 @@ export default function App() {
                     onChange={(e) => setWeaponRarity(e.target.value)}
                   >
                     <option value="all">All</option>
-                    {[...Array(10)].map((_, i) => (
+                    {[...Array(8)].map((_, i) => (
                       <option key={i} value={i + 1}>
                         Rarity {i + 1}
                       </option>
@@ -278,7 +284,7 @@ export default function App() {
                     onChange={(e) => setArmorRarity(e.target.value)}
                   >
                     <option value="all">All</option>
-                    {[...Array(10)].map((_, i) => (
+                    {[...Array(12)].map((_, i) => (
                       <option key={i} value={i + 1}>
                         Rarity {i + 1}
                       </option>
@@ -338,7 +344,9 @@ export default function App() {
             </section>
           ))}
         </main>
+      
       </div>
+      
       <footer>
         <p>
           Monster Hunter World Data from <a href="https://mhw-db.com">MHW Database</a>

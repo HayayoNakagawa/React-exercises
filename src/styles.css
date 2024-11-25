@@ -1,81 +1,81 @@
-/* style.css */
-
 /* 全体のレイアウト */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f9fa;
-    color: #333;
-  }
-  
-  /* ヘッダー */
-  header {
-    background-color: #007bff;
-    color: white;
-    padding: 1rem;
-    text-align: center;
-  }
-  
-  /* サイドバー */
-  aside {
-    background-color: #e9ecef;
-    padding: 1rem;
-    width: 25%;
-    min-height: 100vh;
-    float: left;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  aside form div {
-    margin-bottom: 1rem;
-  }
-  
-  aside label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 0.5rem;
-  }
-  
-  aside select,
-  aside input {
-    width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  /* メインコンテンツ */
-  main {
-    margin-left: 25%;
-    padding: 2rem;
-  }
-  
-  main section {
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 1rem;
-    padding: 1rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  main section h2 {
-    margin-top: 0;
-    color: #007bff;
-  }
-  
-  main section p {
-    margin: 0.5rem 0;
-  }
-  
-  /* フッター */
-  footer {
-    background-color: #007bff;
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    margin-top: 2rem;
-  }
-  
+  font-family: 'Cinzel', serif;
+  margin: 0;
+  padding: 0;
+  background-color: #2e2a26; /* ダークブラウン */
+  color: #eae3d2; /* アイボリー調 */
+}
+
+/* ヘッダー */
+header {
+  background-color: #5a3e1b; /* 深いブラウン */
+  color: #f0c674; /* ゴールド */
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  border-bottom: 4px solid #a47538; /* アクセント */
+}
+
+/* サイドバー */
+aside {
+  background-color: #3e3429; /* 石壁のような色 */
+  padding: 1rem;
+  width: 25%;
+  min-height: 100vh;
+  float: left;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.5);
+  color: #eae3d2;
+}
+
+aside label {
+  font-weight: bold;
+  color: #f0c674; /* ゴールド */
+}
+
+aside select,
+aside input {
+  background-color: #2e2a26;
+  color: #eae3d2;
+  border: 1px solid #5a3e1b;
+  border-radius: 4px;
+}
+
+/* メインコンテンツ */
+main {
+  margin-left: 25%;
+  padding: 2rem;
+}
+
+main section {
+  background: #3e3429;
+  border: 1px solid #5a3e1b;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+main section h2 {
+  margin-top: 0;
+  color: #f0c674; /* ゴールド */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+  border-bottom: 2px solid #a47538; /* 下線 */
+  padding-bottom: 0.5rem;
+}
+
+main section p {
+  margin: 0.5rem 0;
+  line-height: 1.6;
+}
+
+/* フッター */
+footer {
+  background-color: #5a3e1b;
+  color: #f0c674;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  border-top: 4px solid #a47538;
+}
