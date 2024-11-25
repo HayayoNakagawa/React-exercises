@@ -24,15 +24,16 @@ export default function App() {
   const [weapons, setWeapons] = useState([]); // 武器のリスト
   const [armor, setArmor] = useState([]); // 防具のリスト
   const [filteredItems, setFilteredItems] = useState([]); // フィルタリングされたリスト
-  const [category, setCategory] = useState("All"); // カテゴリ選択
-  const [searchTerm, setSearchTerm] = useState(""); // 検索語句
-  const [type, setType] = useState("Monsters"); // 表示するデータタイプ（Monsters / Weapons / Armor）
-  const [stage, setStage] = useState("all"); // 武器の強化段階（all, initial, upgraded, final）
+  const [type, setType] = useState("Monsters"); // 表示するデータタイプ
+  const [monsterSize, setMonsterSize] = useState("All"); // モンスターの大きさ
+  const [monsterSpecies, setMonsterSpecies] = useState("All"); // モンスターの種族
+  const [stage, setStage] = useState("all"); // 武器の強化段階
   const [weaponType, setWeaponType] = useState("All"); // 武器タイプ
   const [weaponElement, setWeaponElement] = useState("All"); // 武器の属性
   const [weaponRarity, setWeaponRarity] = useState("all"); // 武器のレアリティ
   const [armorRarity, setArmorRarity] = useState("all"); // 防具のレアリティ
-  const [armorRank, setArmorRank] = useState("all"); // 防具のランク（high, low）
+  const [armorRank, setArmorRank] = useState("all"); // 防具のランク
+  const [searchTerm, setSearchTerm] = useState(""); // 検索語句
 
   useEffect(() => {
     (async () => {
@@ -58,10 +59,15 @@ export default function App() {
         : armor;
 
     const results = items.filter((item) => {
-      const matchesCategory =
+      const matchesMonsterSize =
         type !== "Monsters" ||
-        category === "All" ||
-        item.type?.toLowerCase() === category.toLowerCase();
+        monsterSize === "All" ||
+        item.type?.toLowerCase() === monsterSize.toLowerCase();
+
+      const matchesMonsterSpecies =
+        type !== "Monsters" ||
+        monsterSpecies === "All" ||
+        item.species?.toLowerCase() === monsterSpecies.toLowerCase();
 
       const matchesStage =
         type !== "Weapons" ||
@@ -102,7 +108,8 @@ export default function App() {
         .includes(searchTerm.toLowerCase());
 
       return (
-        matchesCategory &&
+        matchesMonsterSize &&
+        matchesMonsterSpecies &&
         matchesStage &&
         matchesWeaponType &&
         matchesWeaponElement &&
@@ -115,7 +122,8 @@ export default function App() {
 
     setFilteredItems(results);
   }, [
-    category,
+    monsterSize,
+    monsterSpecies,
     searchTerm,
     type,
     stage,
@@ -149,6 +157,39 @@ export default function App() {
                 <option value="Armor">Armor</option>
               </select>
             </div>
+            {type === "Monsters" && (
+              <>
+                <div>
+                  <label htmlFor="monsterSize">Filter by size:</label>
+                  <select
+                    id="monsterSize"
+                    value={monsterSize}
+                    onChange={(e) => setMonsterSize(e.target.value)}
+                  >
+                    <option value="All">All</option>
+                    <option value="small">Small</option>
+                    <option value="large">Large</option>
+                  </select>
+                </div>
+                <div>
+                  <label htmlFor="monsterSpecies">Filter by species:</label>
+                  <select
+                    id="monsterSpecies"
+                    value={monsterSpecies}
+                    onChange={(e) => setMonsterSpecies(e.target.value)}
+                  >
+                    <option value="All">All</option>
+                    {[...new Set(monsters.map((m) => m.species))].map(
+                      (species, index) => (
+                        <option key={index} value={species}>
+                          {species}
+                        </option>
+                      )
+                    )}
+                  </select>
+                </div>
+              </>
+            )}
             {type === "Weapons" && (
               <>
                 <div>
