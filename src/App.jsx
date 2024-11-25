@@ -141,6 +141,9 @@ export default function App() {
     <>
       <header>
         <h1>Monster Hunter World Database</h1>
+        <p>氏名：中川颯丈</p>
+        <p>学生証番号：5423060</p>
+        <p>日本大学文理学部情報科学科 Webプログラミングの演習課題</p>
       </header>
       <div>
         <aside>
