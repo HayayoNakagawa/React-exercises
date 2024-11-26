@@ -5,6 +5,11 @@ body {
   padding: 0;
   background-color: #2e2a26; /* ダークブラウン */
   color: #eae3d2; /* アイボリー調 */
+  box-sizing: border-box; /* 全体に適用 */
+}
+
+*, *::before, *::after {
+  box-sizing: inherit; /* パディングやボーダーの計算を含める */
 }
 
 /* ヘッダー */
@@ -22,16 +27,37 @@ header {
 aside {
   background-color: #3e3429; /* 石壁のような色 */
   padding: 1rem;
-  width: 25%;
+  width: 20%; /* 幅を確実に指定 */
   min-height: 100vh;
   float: left;
   box-shadow: 2px 0 8px rgba(0, 0, 0, 0.5);
   color: #eae3d2;
+  border-right: 4px solid #5a3e1b;
+}
+
+aside h3 {
+  font-size: 1.2rem;
+  color: #f0c674; /* ゴールド */
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+  border-bottom: 2px solid #a47538;
+  padding-bottom: 0.5rem;
+}
+
+aside form div {
+  margin-bottom: 1rem; /* 要素間の余白を縮小 */
+  background: rgba(46, 42, 38, 0.8); /* 半透明の背景 */
+  border: 1px solid #5a3e1b;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 aside label {
   font-weight: bold;
   color: #f0c674; /* ゴールド */
+  display: block;
+  margin-bottom: 0.5rem;
 }
 
 aside select,
@@ -39,13 +65,47 @@ aside input {
   background-color: #2e2a26;
   color: #eae3d2;
   border: 1px solid #5a3e1b;
-  border-radius: 4px;
+  border-radius: 6px;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+aside select:hover,
+aside input:hover {
+  background-color: #3e3429;
+  border-color: #f0c674;
+  box-shadow: 0 0 5px #f0c674;
+}
+
+/* ボタンスタイル */
+aside button {
+  display: block;
+  background-color: #5a3e1b;
+  color: #f0c674;
+  border: 1px solid #a47538;
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+aside button:hover {
+  background-color: #7a5227; /* ハイライト */
+  border-color: #f0c674;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 }
 
 /* メインコンテンツ */
 main {
-  margin-left: 25%;
+  margin-left: 20%; /* サイドバーの幅と同じ値 */
   padding: 2rem;
+  background-color: #2e2a26;
 }
 
 main section {
